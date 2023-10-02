@@ -4,30 +4,28 @@ import { apple, google } from "../assets/icons";
 function Footer() {
   return (
     <footer>
-      <div className="bg-orange-300 p-12  w-full flex flex-col justify-center items-center gap-5">
-        <h4 className="text-center text-white font-medium text-2xl">
+      <div className="bg-orange-300 p-12 max-md:px-4  w-full flex flex-col justify-center items-center gap-5">
+        <h4 className="text-center text-white font-medium text-2xl max-md:text-lg">
           Subscribe to our newsletter
         </h4>
         <p className="text-center text-white text-sm">
           Praesent fringilla erat a lacinia egestas. Donec vehicula tempor
-          libero et
-          <br />
-          cursus. Donec non quam urna. Quisque vitae porta ipsum.
+          libero etc cursus. Donec non quam urna. Quisque vitae porta ipsum.
         </p>
-        <div className="w-[30%] bg-white h-12 flex justify-between p-1.5 rounded-sm mb-2">
+        <div className="lg:w-[30%] bg-white h-12 flex justify-between p-1.5 rounded-sm mb-2">
           <input
             className="w-full outline-none pl-2"
             type="text"
             placeholder="Email address"
           />
-          <button className="bg-orange-400 text-white px-4 rounded-sm text-sm">
+          <button className="bg-orange-400 text-white px-2 rounded-sm text-sm max-md:text-xs">
             SUBSCRIBE
           </button>
         </div>
       </div>
 
       <div className="bg-orange-500 w-full">
-        <div className=" text-white flex gap-14 justify-center p-10">
+        <div className=" text-white flex max-lg:flex-col max-lg:gap-4 gap-10 justify-center p-10">
           <div>
             <h4 className="text-2xl font-semibold mb-3">ShopHub</h4>
             <p className="text-xs font-light">Customer Supports:</p>
@@ -57,7 +55,7 @@ function Footer() {
             <p className="text-xs mt-2">Track Order</p>
             <p className="text-xs mt-2">Customer Help</p>
           </div>
-          <div className="flex flex-col gap-4">
+          <div className="flex max-lg:items-start flex-col gap-4">
             <h4>Download APP</h4>
             <div className="flex bg-orange-700 px-5 py-3  rounded-sm justify-center gap-3">
               <img className="w-6 h-6" src={google} alt="" />
@@ -127,7 +125,6 @@ function Footer() {
             </div>
           </div>
         </div>
-        
       </div>
     </footer>
   );
