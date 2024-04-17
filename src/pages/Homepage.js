@@ -2,6 +2,9 @@ import Banner from "../components/Banner";
 import Heading from "../components/Heading";
 import Slider from "react-slick";
 import CategoryCard from "../components/CategoryCard";
+import React,{useEffect} from "react";
+import Aos from 'aos'
+import 'aos/dist/aos.css'
 import {
   fa1,
   fa2,
@@ -45,6 +48,11 @@ function SamplePrevArrow(props) {
 }
 
 const Homepage = () => {
+
+  useEffect(()=>{
+    Aos.init({duration: 2000})
+  },[])
+
   const settings = {
     infinite: false,
     speed: 500,
@@ -80,7 +88,7 @@ const Homepage = () => {
 
   return (
     <section className="max-container ">
-      <Banner />
+      <Banner/>
       <div className="p-10 max-lg:p-7 max-md:p-5 max-sm:p-3 flex flex-col gap-10">
         <div className="product-catalog">
           <Heading

@@ -14,25 +14,6 @@ import {
 import { UserContext } from "./UserContext";
 
 const Header = () => {
-
-  const {userInfo,setUserInfo} = useContext(UserContext);
-  useEffect(()=>{
-    fetch('http://localhost:4000/profile',{
-      credentials: 'include',
-    }).then(response=>{
-      response.json().then(userInfo=>{
-        setUserInfo(userInfo);
-        console.log(userInfo);
-      })
-    })
-  },[])
-
-
-  const username = userInfo?.username;
-
- 
-
-
   const [drop, setDrop] = useState(false);
   const [drawer, setDrawer] = useState(false);
   const [text] = useTypewriter({
@@ -146,13 +127,13 @@ const Header = () => {
           >
             CONTACT
           </Link>
-          {username=="Kapil Kumar" ? <Link
-            onClick={myDrawer}
+
+          <Link
             to={"/seller"}
             className="hover:underline hover:text-orange-500"
           >
             SELLER
-          </Link>:null}
+          </Link>
         </nav>
         <div className="max-md:ml-2 flex max-md:gap-2 gap-6">
           <Link className="relative" to={"/wishlist"}>
@@ -162,7 +143,7 @@ const Header = () => {
               0
             </b>
           </Link>
-          <Link to={`${username ? '/profile':'/auth/login'} `}>
+          <Link to={"/auth/login"}>
             <AccountCircleOutlinedIcon className="text-orange-500" />
           </Link>
           <Link className="relative" to={"/cart"}>

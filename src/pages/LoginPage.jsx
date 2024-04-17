@@ -1,33 +1,13 @@
-import React, { useState,useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 import { UserContext } from "../components/UserContext";
 
-
 const LoginPage = () => {
- 
-
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [redirect, setRedirect] = useState(false);
-  const {setUserInfo} = useContext(UserContext);
-  async function login(ev) {
-    ev.preventDefault();
-    const response = await fetch("http://localhost:4000/login", {
-      method: "POST",
-      body: JSON.stringify({ username, password }),
-      headers: { "Content-Type": "application/json" },
-      credentials: "include",
-    });
-    if (response.ok) {
-      response.json().then((userInfo) => {
-        setUserInfo(userInfo);
-        setRedirect(true);
-      });
-    } else {
-      alert("wrong credentials");
-    }
-  }
+  const { setUserInfo } = useContext(UserContext);
 
   if (redirect) {
     return <Navigate to={"/"} />;
@@ -39,7 +19,7 @@ const LoginPage = () => {
         <h1 className="text-xl font-bold text-orange-500 text-center mb-10">
           Login
         </h1>
-        <form action="" className="flex flex-col gap-5" onSubmit={login}>
+        <form action="" className="flex flex-col gap-5">
           <input
             required={true}
             type="text"
@@ -48,7 +28,7 @@ const LoginPage = () => {
             onChange={(e) => setUsername(e.target.value)}
           />
           <input
-          required={true}
+            required={true}
             type="password"
             placeholder="Password"
             className="input"
